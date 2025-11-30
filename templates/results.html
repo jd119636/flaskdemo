@@ -1,13 +1,19 @@
 {% extends "layout.html" %}
-{% block title %}Wikipedia Results{% endblock %}
-{% block content %}
-{% if page %}
-{#    TODO: add page title and more... #}
 
-  <h2>Summary </h2>
-    <p>{{ page.summary }}</p>
-    <p><a href="{{ page.url }}"> {{ page.title }}</a> </p>
-{% else %}
-  <h1>Error</h1>
-{% endif %}
+{% block title %}Wikipedia Results{% endblock %}
+
+{% block content %}
+  {% if page %}
+    <h1>{{ page.title }}</h1>  <!-- Display the page title -->
+
+    <h2>Summary</h2>
+    <p>{{ page.summary }}</p>   <!-- Display the page summary -->
+
+    <p>
+      <a href="{{ page.url }}" target="_blank">Read more on Wikipedia</a>
+    </p>
+  {% else %}
+    <h1>Error</h1>
+    <p>No Wikipedia page found for your search.</p>
+  {% endif %}
 {% endblock %}
